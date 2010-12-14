@@ -1,5 +1,5 @@
 
-= SixArm Ruby Gem: Flexible ways to deal with real human names
+= SixArm Ruby Gem: PersonName
 
 Author:: Joel Parker Henderson, joelparkerhenderson@gmail.com
 Copyright:: Copyright (c) 2006-2010 Joel Parker Henderson
@@ -40,3 +40,5 @@ Use memoize to make these very fast in Rails:
     memoize :full_name
     memoize :list_name
   end
+
+
