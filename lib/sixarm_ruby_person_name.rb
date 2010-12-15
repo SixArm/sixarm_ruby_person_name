@@ -1,13 +1,17 @@
+# -*- encoding: utf-8 -*-
 =begin rdoc
 
-= SixArm Ruby Gem: PersonName
+= SixArm Ruby Gem » PersonName
 
 Author:: Joel Parker Henderson, joelparkerhenderson@gmail.com
 Copyright:: Copyright (c) 2006-2010 Joel Parker Henderson
-License:: CreativeCommons License, Non-commercial Share Alike
-License:: LGPL, GNU Lesser General Public License
+License:: Your choice of BSD, MIT, LGPL, or CreativeCommons Non-commercial Share Alike
 
-Access a human name from the fields of an ActiveRecord-based model in several combinations:
+PersonName formats a person's name various ways for lists, searching, sorting.
+
+Tpyically this is useful for displaying fields of an ActiveRecord-based model.
+
+There are several combinations:
 * first_name_middle_name
 * first_name_middle_initial
 * fullname: first_name_middle_name_last_name
