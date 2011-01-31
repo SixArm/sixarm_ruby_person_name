@@ -1,5 +1,4 @@
-
-= SixArm Ruby Gem: PersonName
+= SixArm.com » Ruby » PersonName gem accesses a person's name from ActiveRecord fields
 
 Author:: Joel Parker Henderson, joelparkerhenderson@gmail.com
 Copyright:: Copyright (c) 2006-2010 Joel Parker Henderson
