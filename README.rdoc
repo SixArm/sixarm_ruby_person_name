@@ -1,9 +1,8 @@
 = SixArm.com » Ruby » PersonName gem accesses a person's name from ActiveRecord fields
 
 Author:: Joel Parker Henderson, joelparkerhenderson@gmail.com
-Copyright:: Copyright (c) 2006-2010 Joel Parker Henderson
-License:: CreativeCommons License, Non-commercial Share Alike
-License:: LGPL, GNU Lesser General Public License
+Copyright:: Copyright (c) 2006-2011 Joel Parker Henderson
+License:: See LICENSE.txt file
 
 Access a human name from the fields of an ActiveRecord-based model in several combinations:
 * first_name_middle_name
