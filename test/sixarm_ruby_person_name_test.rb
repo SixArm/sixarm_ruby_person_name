@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 require 'test/unit'
 require 'sixarm_ruby_person_name'
+
 
 class PersonNameTest < Test::Unit::TestCase
 
