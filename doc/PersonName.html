@@ -313,12 +313,12 @@ Return true iff the person has a first name and its non-blank
       <pre class="lines">
 
 
-54
-55
-56</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id first_name?'>first_name?</span>
  <span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:first_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id first_name'>first_name</span> <span class='kw'>and</span> <span class='id first_name'>first_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='id first_name'>first_name</span><span class='period'>.</span><span class='id strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
@@ -355,15 +355,15 @@ Return the person&#8217;s first name + middle initial
       <pre class="lines">
 
 
-91
-92
-93
-94
 95
-96</pre>
+96
+97
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id first_name_middle_initial'>first_name_middle_initial</span>
   <span class='id pieces'>pieces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -403,16 +403,16 @@ Return the person&#8217;s first name + middle initial + last name
       <pre class="lines">
 
 
-104
-105
-106
-107
 108
 109
-110</pre>
+110
+111
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id first_name_middle_initial_last_name'>first_name_middle_initial_last_name</span>
  <span class='id pieces'>pieces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -453,15 +453,15 @@ Return the person&#8217;s first name + middle name
       <pre class="lines">
 
 
-78
-79
-80
-81
 82
-83</pre>
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id first_name_middle_name'>first_name_middle_name</span>
   <span class='id pieces'>pieces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -505,16 +505,16 @@ This method skips any piece of the name that is missing or blank.
       <pre class="lines">
 
 
-120
-121
-122
-123
 124
 125
-126</pre>
+126
+127
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id full_name'>full_name</span>
   <span class='id pieces'>pieces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -565,12 +565,12 @@ Return true iff the person has a last name and its non-blank
       <pre class="lines">
 
 
-68
-69
-70</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id last_name?'>last_name?</span>
  <span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:last_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id last_name'>last_name</span> <span class='kw'>and</span> <span class='id last_name'>last_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='id last_name'>last_name</span><span class='period'>.</span><span class='id strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
@@ -611,19 +611,19 @@ This method skips any piece of the name that is missing or blank.
       <pre class="lines">
 
 
-136
-137
-138
-139
 140
 141
 142
 143
 144
-145</pre>
+145
+146
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 140</span>
 
 <span class='kw'>def</span> <span class='id list_name'>list_name</span>
   <span class='id pieces'>pieces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -677,12 +677,12 @@ Return true iff the person has a middle name and its non-blank
       <pre class="lines">
 
 
-61
-62
-63</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id middle_name?'>middle_name?</span>
  <span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:middle_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id middle_name'>middle_name</span> <span class='kw'>and</span> <span class='id middle_name'>middle_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='id middle_name'>middle_name</span><span class='period'>.</span><span class='id strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
@@ -697,9 +697,9 @@ Return true iff the person has a middle name and its non-blank
 </div>
     
     <div id="footer">
-  Generated on Mon Dec 13 17:56:35 2010 by 
+  Generated on Sat Feb 12 16:22:19 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.9.2).
+  0.6.4 (ruby-1.9.2).
 </div>
 
   </body>

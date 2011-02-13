@@ -1,7 +1,11 @@
 Gem::Specification.new do |s|
 
-  s.name              = "sixarm_ruby_person_name"
-  s.summary           = "SixArm Ruby Gem: PersonName mixin methods to calculate a person's full name, sortable name, etc."
+  NAME                = "sixarm_ruby_person_name"
+  SOURCES             = []
+  TESTERS             = []
+
+  s.name              = NAME
+  s.summary           = "SixArm.com » Ruby » PersonName mixin methods to calculate a person's full name, sortable name, etc."
   s.version           = "1.0.2"
   s.author            = "SixArm"
   s.email             = "sixarm@sixarm.com"
@@ -12,7 +16,10 @@ Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.require_path      = 'lib'
   s.has_rdoc          = true
-  s.files             = ['README.rdoc','LICENSE.txt','lib/sixarm_ruby_person_name.rb']
-  s.test_files        = ['test/sixarm_ruby_person_name_test.rb']
+
+  s.files             = [".gemtest","Rakefile","README.rdoc","LICENSE.txt"]
+                        ["lib/#{NAME}.rb"] + SOURCES.map{|x| "lib/#{NAME}/#{x}.rb"} +
+                        ["test/#{NAME}.rb"] + TESTERS.map{|x| "test/#{NAME}/#{x}"}
+  s.test_files        = SOURCES.map{|x| "test/#{NAME}/#{x}_test.rb"}
 
 end
