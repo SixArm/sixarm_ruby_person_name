@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 =begin rdoc
 
 = SixArm.com » Ruby » PersonName gem accesses a person's name from ActiveRecord fields
@@ -27,10 +28,10 @@ However all of these fields which are present must be strings.
   class User < ActiveRecord::Base
     include PersonName
   end
-  
+
   u=User.first
   => {first_name => 'Zora', middle_name => 'Neale', last_name => 'Hurston'}
-  
+
   u.full_name => "Zora Neale Hurston"
   u.list_name => "Hurston, Zora Neale"
   u.first_name_middle_name => "Zora Neale"
@@ -73,7 +74,7 @@ module PersonName
    respond_to?(:last_name) and last_name and last_name!='' and last_name.strip!=''
   end
 
-  
+
   # Return the person's first name + middle name
   #
   # ==Example
@@ -85,9 +86,9 @@ module PersonName
     (pieces << middle_name)   if middle_name?
     return pieces.join(' ')
   end
-  
 
-  # Return the person's first name + middle initial 
+
+  # Return the person's first name + middle initial
   #
   # ==Example
   #   u.first_name_middle_initial => "Zora N"
