@@ -5,15 +5,16 @@ Copyright:: Copyright (c) 2006-2012 Joel Parker Henderson
 License:: See LICENSE.txt file
 
 Our user models typically have accessors like these:
-* first_name => "Martin"
-* middle_name => "Luther"
-* last_name => "King"
+
+   user.first_name => "Martin"
+   user.middle_name => "Luther"
+   user.last_name => "King"
 
 This gem is a utility to concatenate the user's name various common ways:
-* full_name => "Martin Luther King"
-* list_name => "King, Martin Luther"
-* initials => "MLK"
-* etc.
+
+   user.full_name => "Martin Luther King"
+   user.list_name => "King, Martin Luther"
+   user.initials => "MLK"
 
 It's fine if the model doesn't have a middle_name field, or if any of the values of any of the fields are nil or blank; this gem will do the right thing.
 
@@ -45,7 +46,7 @@ To make these very fast in Rails, you can use memoize:
     include PersonName
     memoize :full_name,
             :list_name,
-	    :initials,
+            :initials,
             :first_name_middle_name,
             :first_name_middle_initial,
             :first_name_middle_initial_last_name,
