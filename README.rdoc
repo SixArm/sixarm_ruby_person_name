@@ -4,18 +4,18 @@ Author:: Joel Parker Henderson, joel@joelparkerhenderson.com
 Copyright:: Copyright (c) 2006-2011 Joel Parker Henderson
 License:: See LICENSE.txt file
 
-Access a person's name from the fields of a model in several combinations by using these methods:
-* first_name_middle_name
-* first_name_middle_initial
-* first_name_middle_initial_last_name
-* first_name_last_name
-* full_name
-* list_name
-* initials
+Our user models typically have accessors like these:
+* first_name => "Martin"
+* middle_name => "Luther"
+* last_name => "King"
 
-*Note* that the model doesn't need attributes called first_name, middle_name, and last_name to call the gem's methods; the methods are protected by testing with respond_to?(name_field).
+This gem is a utility to concatenate the user's name various common ways:
+* full_name => "Martin Luther King"
+* list_name => "King, Martin Luther"
+* initials => "MLK"
+* etc.
 
-However all of these fields which are present must be strings.
+It's fine if the model doesn't have a middle_name field, or if any of the values of any of the fields are nil or blank; this gem will do the right thing.
 
 ==Example
 
@@ -23,7 +23,7 @@ However all of these fields which are present must be strings.
     include PersonName
   end
   
-  user=User.create(
+  user=User.new(
     first_name => 'Martin',
     middle_name => 'Luther',
     last_name => 'King'
@@ -32,6 +32,9 @@ However all of these fields which are present must be strings.
   user.full_name => "Martin Luther King"
   user.list_name => "King, Martin Luther"
   user.initials => "MLK"
+  user.first_name_middle_name => "Martin Luther"
+  user.first_name_middle_initial => "Martin L"
+  user.first_name_middle_initial_last_name => "Martin L King"
 
 ==Performance Tip
 
@@ -40,13 +43,13 @@ To make these very fast in Rails, you can use memoize:
   class User < ActiveRecord::Base
     extend ActiveSupport::Memoizable
     include PersonName
-    memoize :first_name_middle_name,
+    memoize :full_name,
+            :list_name,
+	    :initials,
+            :first_name_middle_name,
             :first_name_middle_initial,
             :first_name_middle_initial_last_name,
-            :first_name_last_name,
-            :full_name,
-            :list_name,
-	    :initials
+            :first_name_last_name
   end
 
 
