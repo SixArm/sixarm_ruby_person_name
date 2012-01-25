@@ -4,13 +4,13 @@ Author:: Joel Parker Henderson, joel@joelparkerhenderson.com
 Copyright:: Copyright (c) 2006-2011 Joel Parker Henderson
 License:: See LICENSE.txt file
 
-Access a human name from the fields of an ActiveRecord-based model in several combinations:
+Access a person's name from the fields of a model in several combinations by using these methods:
 * first_name_middle_name
 * first_name_middle_initial
-* fullname: first_name_middle_name_last_name
 * first_name_middle_initial_last_name
 * first_name_last_name
-* list_name: last_name, first_name
+* full_name
+* list_name
 
 *Note* that the model doesn't need attributes called first_name, middle_name, and last_name to call the gem's methods; the methods are protected by testing with respond_to?(name_field).
 
@@ -21,22 +21,26 @@ However all of these fields which are present must be strings.
     include PersonName
   end
   
-  u=User.first
-  => {first_name => 'Zora', middle_name => 'Neale', last_name => 'Hurston'}
+  u=User.create(first_name => 'Zora', middle_name => 'Neale', last_name => 'Hurston')
   
-  u.full_name => "Zora Neale Hurston"
-  u.list_name => "Hurston, Zora Neale"
   u.first_name_middle_name => "Zora Neale"
   u.first_name_middle_initial_last_name => "Zora N Hurston"
+  u.full_name => "Zora Neale Hurston"
+  u.list_name => "Hurston, Zora Neale"
 
 ==Performance Tip
 
-Use memoize to make these very fast in Rails:
+To make these very fast in Rails, you can use memoize:
 
   class User < ActiveRecord::Base
+    extend ActiveSupport::Memoizable
     include PersonName
-    memoize :full_name
-    memoize :list_name
+    memoize :first_name_middle_name,
+            :first_name_middle_initial,
+            :first_name_middle_initial_last_name,
+            :first_name_last_name,
+            :full_name,
+            :list_name
   end
 
 
