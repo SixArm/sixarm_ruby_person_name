@@ -21,12 +21,12 @@ However all of these fields which are present must be strings.
     include PersonName
   end
   
-  u=User.create(first_name => 'Zora', middle_name => 'Neale', last_name => 'Hurston')
+  u=User.create(first_name => 'Martin', middle_name => 'Luther', last_name => 'King')
   
-  u.first_name_middle_name => "Zora Neale"
-  u.first_name_middle_initial_last_name => "Zora N Hurston"
-  u.full_name => "Zora Neale Hurston"
-  u.list_name => "Hurston, Zora Neale"
+  u.first_name_middle_name => "Martin Luther"
+  u.first_name_middle_initial_last_name => "Martin L King"
+  u.full_name => "Martin Luther King"
+  u.list_name => "King, Martin Luther"
 
 ==Performance Tip
 
