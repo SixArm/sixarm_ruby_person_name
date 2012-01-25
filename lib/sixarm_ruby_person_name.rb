@@ -1,53 +1,6 @@
 # -*- coding: utf-8 -*-
-
 =begin rdoc
-
-= SixArm.com » Ruby » PersonName gem accesses a person's name from ActiveRecord fields
-
-Author:: Joel Parker Henderson, joelparkerhenderson@gmail.com
-Copyright:: Copyright (c) 2006-2011 Joel Parker Henderson
-License:: See LICENSE.txt file
-
-PersonName formats a person's name various ways for lists, searching, sorting.
-
-Tpyically this is useful for displaying fields of an ActiveRecord-based model.
-
-There are several combinations:
-* first_name_middle_name
-* first_name_middle_initial
-* fullname: first_name_middle_name_last_name
-* first_name_middle_initial_last_name
-* first_name_last_name
-* list_name: last_name, first_name
-
-*Note* that the model doesn't need attributes called first_name, middle_name, and last_name to call the gem's methods; the methods are protected by testing with respond_to?(name_field).
-
-However all of these fields which are present must be strings.
-
-==Example
-  class User < ActiveRecord::Base
-    include PersonName
-  end
-
-  u=User.first
-  => {first_name => 'Zora', middle_name => 'Neale', last_name => 'Hurston'}
-
-  u.full_name => "Zora Neale Hurston"
-  u.list_name => "Hurston, Zora Neale"
-  u.first_name_middle_name => "Zora Neale"
-  u.first_name_middle_initial_last_name => "Zora N Hurston"
-
-==Performance Tip
-
-Use memoize to make these very fast in Rails:
-
-  class User < ActiveRecord::Base
-    include PersonName
-    memoize :full_name
-    memoize :list_name
-  end
-
-
+Please see README.rdoc
 =end
 
 
@@ -78,7 +31,7 @@ module PersonName
   # Return the person's first name + middle name
   #
   # ==Example
-  #   u.first_name_middle_name => "Zora Neale"
+  #   u.first_name_middle_name => "Martin Luther"
 
   def first_name_middle_name
     pieces = []
@@ -91,7 +44,7 @@ module PersonName
   # Return the person's first name + middle initial
   #
   # ==Example
-  #   u.first_name_middle_initial => "Zora N"
+  #   u.first_name_middle_initial => "Martin N"
 
   def first_name_middle_initial
     pieces = []
@@ -104,7 +57,7 @@ module PersonName
   # Return the person's first name + middle initial + last name
   #
   # ==Example
-  #   u.first_name_middle_initial_last_name => "Zora N Hurston"
+  #   u.first_name_middle_initial_last_name => "Martin N King"
 
   def first_name_middle_initial_last_name
    pieces = []
@@ -118,7 +71,7 @@ module PersonName
   # Return the person's full name: first_name middle_name last_name
   #
   # ==Example
-  #   u.full_name => "Zora Neale Hurston"
+  #   u.full_name => "Martin Luther King"
   #
   # This method skips any piece of the name that is missing or blank.
 
@@ -134,7 +87,7 @@ module PersonName
   # Return the person's list name: last_name, first_name middle_name
   #
   # ==Example
-  #   u.list_name => "Hurston, Zora Neale"
+  #   u.list_name => "King, Martin Luther"
   #
   # This method skips any piece of the name that is missing or blank.
 
@@ -148,5 +101,22 @@ module PersonName
     end
     return pieces.join(' ')
   end
+
+
+  # Return the person's intials
+  #
+  # ==Example
+  #   u.initials => "MLK"
+  #
+  # This method skips any piece of the name that is missing or blank.
+
+  def initials
+    s = ""
+    (s << first_name[0])  if first_name?
+    (s << middle_name[0]) if middle_name?
+    (s << last_name[0]) if last_name?
+    return s
+  end
+
 
 end

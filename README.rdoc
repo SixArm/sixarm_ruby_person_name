@@ -11,22 +11,27 @@ Access a person's name from the fields of a model in several combinations by usi
 * first_name_last_name
 * full_name
 * list_name
+* initials
 
 *Note* that the model doesn't need attributes called first_name, middle_name, and last_name to call the gem's methods; the methods are protected by testing with respond_to?(name_field).
 
 However all of these fields which are present must be strings.
 
 ==Example
+
   class User < ActiveRecord::Base
     include PersonName
   end
   
-  u=User.create(first_name => 'Martin', middle_name => 'Luther', last_name => 'King')
+  user=User.create(
+    first_name => 'Martin',
+    middle_name => 'Luther',
+    last_name => 'King'
+  )
   
-  u.first_name_middle_name => "Martin Luther"
-  u.first_name_middle_initial_last_name => "Martin L King"
-  u.full_name => "Martin Luther King"
-  u.list_name => "King, Martin Luther"
+  user.full_name => "Martin Luther King"
+  user.list_name => "King, Martin Luther"
+  user.initials => "MLK"
 
 ==Performance Tip
 
@@ -40,7 +45,8 @@ To make these very fast in Rails, you can use memoize:
             :first_name_middle_initial_last_name,
             :first_name_last_name,
             :full_name,
-            :list_name
+            :list_name,
+	    :initials
   end
 
 

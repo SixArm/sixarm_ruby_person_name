@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
+require 'test/unit'
 require 'simplecov'
 SimpleCov.start
-require 'test/unit'
 require 'sixarm_ruby_person_name'
-
 
 class PersonNameTest < Test::Unit::TestCase
 
@@ -100,6 +99,18 @@ class PersonNameTest < Test::Unit::TestCase
 
  def test_list_name
   assert_equal("ghi, abc def",p("abc","def","ghi").list_name)
+ end
+
+ def test_initials
+  assert_equal("adg",p("abc","def","ghi").initials)
+ end
+
+ def test_initials_with_first_name_and_middle_name
+  assert_equal("ad",p("abc","def",nil).initials)
+ end
+
+ def test_initials_with_first_name_and_last_name
+  assert_equal("ag",p("abc",nil,"ghi").initials)
  end
 
  # Factory

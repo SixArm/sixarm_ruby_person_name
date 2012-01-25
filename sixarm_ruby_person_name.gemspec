@@ -1,12 +1,8 @@
 Gem::Specification.new do |s|
 
-  NAME                = "sixarm_ruby_person_name"
-  SOURCES             = []
-  TESTERS             = []
-
-  s.name              = NAME
-  s.summary           = "SixArm.com » Ruby » PersonName mixin methods to calculate a person's full name, sortable name, etc."
-  s.version           = "1.0.2"
+  s.name              = "sixarm_ruby_person_name"
+  s.summary           = "SixArm.com » Ruby » PersonName mixin methods to calculate a person's full name, list name, initials, etc."
+  s.version           = "1.0.4"
   s.author            = "SixArm"
   s.email             = "sixarm@sixarm.com"
   s.homepage          = "http://sixarm.com/"
@@ -17,9 +13,11 @@ Gem::Specification.new do |s|
   s.require_path      = 'lib'
   s.has_rdoc          = true
 
-  s.files             = [".gemtest","Rakefile","README.rdoc","LICENSE.txt"]
-                        ["lib/#{NAME}.rb"] + SOURCES.map{|x| "lib/#{NAME}/#{x}.rb"} +
-                        ["test/#{NAME}.rb"] + TESTERS.map{|x| "test/#{NAME}/#{x}"}
-  s.test_files        = SOURCES.map{|x| "test/#{NAME}/#{x}_test.rb"}
+  top_files           = [".gemtest", "CHANGELOG.txt", "INSTALL.txt", "LICENSE.txt", "Rakefile", "README.rdoc", "VERSION"]
+  lib_files           = ["lib/#{s.name}.rb"]
+  test_files          = ["test/#{s.name}_test.rb"]
+
+  s.files             = top_files + lib_files + test_files
+  s.test_files        = test_files
 
 end
