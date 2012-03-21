@@ -1,4 +1,0 @@
-CHANGELOG
-
-2012-01-24 1.0.4 Add #initals method. Add CHANGELOG.txt file. Update examples.
-
