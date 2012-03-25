@@ -1,6 +1,7 @@
-# SixArm.com » Ruby » <br> PersonName gem accesses a person's name from ActiveRecord fields
+# SixArm.com » Ruby » <br> PersonName mixin methods for a person model
 
-* Docs: <http://sixarm.com/sixarm_ruby_person_name/doc>
+* Doc: <http://sixarm.com/sixarm_ruby_person_name/doc>
+* Gem: <http://rubygems.org/gems/sixarm_ruby_person_name>
 * Repo: <http://github.com/sixarm/sixarm_ruby_person_name>
 * Email: Joel Parker Henderson, <joel@sixarm.com>
 
