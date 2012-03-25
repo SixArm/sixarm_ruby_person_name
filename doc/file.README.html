@@ -2,17 +2,27 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Documentation by YARD 0.6.4</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.5
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
 
   </head>
   <body>
@@ -31,100 +41,159 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><div id='filecontents'><h1>SixArm.com » Ruby » PersonName gem accesses a person&#8217;s name from ActiveRecord fields</h1>
-<table>
-<tr><td valign="top">Author</td><td><p>
-Joel Parker Henderson, joelparkerhenderson@gmail.com
-</p>
-</td></tr>
-<tr><td valign="top">Copyright</td><td><p>
-Copyright &#169; 2006-2011 Joel Parker Henderson
-</p>
-</td></tr>
-<tr><td valign="top">License</td><td><p>
-See LICENSE.txt file
-</p>
-</td></tr>
-</table>
-<p>
-Access a human name from the fields of an ActiveRecord-based model in
-several combinations:
-</p>
+    <div id="content"><div id='filecontents'><h1>SixArm.com » Ruby » <br> PersonName gem accesses a person&#39;s name from ActiveRecord fields</h1>
+
 <ul>
-<li><p>
-first_name_middle_name
-</p>
-</li>
-<li><p>
-first_name_middle_initial
-</p>
-</li>
-<li><p>
-fullname: first_name_middle_name_last_name
-</p>
-</li>
-<li><p>
-first_name_middle_initial_last_name
-</p>
-</li>
-<li><p>
-first_name_last_name
-</p>
-</li>
-<li><p>
-list_name: last_name, first_name
-</p>
-</li>
+<li>Docs: <a href="http://sixarm.com/sixarm_ruby_person_name/doc">http://sixarm.com/sixarm_ruby_person_name/doc</a></li>
+<li>Repo: <a href="http://github.com/sixarm/sixarm_ruby_person_name">http://github.com/sixarm/sixarm_ruby_person_name</a></li>
+<li>Email: Joel Parker Henderson, <a href="mailto:joel@sixarm.com">joel@sixarm.com</a></li>
 </ul>
-<p>
-<b>Note</b> that the model doesn&#8217;t need attributes called first_name,
-middle_name, and last_name to call the gem&#8217;s methods; the methods are
-protected by testing with respond_to?(name_field).
-</p>
-<p>
-However all of these fields which are present must be strings.
-</p>
+
+<h2>Introduction</h2>
+
+<p>Our user models typically have accessors like these:</p>
+
+<p>user.first<em>name =&gt; &quot;Martin&quot;
+   user.middle</em>name =&gt; &quot;Luther&quot;
+   user.last_name =&gt; &quot;King&quot;</p>
+
+<p>This gem is a utility to concatenate the user&#39;s name various common ways:</p>
+
+<p>user.full<em>name =&gt; &quot;Martin Luther King&quot;
+   user.list</em>name =&gt; &quot;King, Martin Luther&quot;
+   user.initials =&gt; &quot;MLK&quot;</p>
+
+<p>It&#39;s fine if the model doesn&#39;t have a middle_name field, or if any of the values of any of the fields are nil or blank; this gem will do the right thing.</p>
+
+<p>For docs go to <a href="http://sixarm.com/sixarm_ruby_person_name/doc">http://sixarm.com/sixarm_ruby_person_name/doc</a></p>
+
+<p>Want to help? We&#39;re happy to get pull requests.</p>
+
+<h2>Install quickstart</h2>
+
+<p>Install:</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_sixarm_ruby_person_name'>sixarm_ruby_person_name</span>
+</code></pre>
+
+<p>Bundler:</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_person_name</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~&gt;1.1.0</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>Require:</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_person_name</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<h2>Install with security (optional)</h2>
+
+<p>To enable high security for all our gems:</p>
+
+<pre class="code ruby"><code>wget http://sixarm.com/sixarm.pem
+gem cert --add sixarm.pem
+gem sources --add http://sixarm.com
+</code></pre>
+
+<p>To install with high security:</p>
+
+<pre class="code ruby"><code>gem install sixarm_ruby_person_name --test --trust-policy HighSecurity
+</code></pre>
+
 <h2>Example</h2>
-<pre class="code">
-  class User &lt; ActiveRecord::Base
-    include PersonName
-  end
-  
-  u=User.first
-  =&gt; {first_name =&gt; 'Zora', middle_name =&gt; 'Neale', last_name =&gt; 'Hurston'}
-  
-  u.full_name =&gt; &quot;Zora Neale Hurston&quot;
-  u.list_name =&gt; &quot;Hurston, Zora Neale&quot;
-  u.first_name_middle_name =&gt; &quot;Zora Neale&quot;
-  u.first_name_middle_initial_last_name =&gt; &quot;Zora N Hurston&quot;
-</pre>
-<h2>Performance Tip</h2>
-<p>
-Use memoize to make these very fast in Rails:
-</p>
-<pre class="code">
-  <span class='kw'>class</span> <span class='const'>User</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
-    <span class='id include'>include</span> <span class='const'>PersonName</span>
-    <span class='id memoize'>memoize</span> <span class='symbol'>:full_name</span>
-    <span class='id memoize'>memoize</span> <span class='symbol'>:list_name</span>
-  <span class='kw'>end</span>
-</pre>
+
+<p>Create a typical user class, include this mixin, the use it:</p>
+
+<pre class="code ruby"><code>class User &lt; ActiveRecord::Base
+  include PersonName
+end
+
+user=User.new(
+  first_name =&gt; 'Martin',
+  middle_name =&gt; 'Luther',
+  last_name =&gt; 'King'
+)
+
+user.full_name =&gt; &quot;Martin Luther King&quot;
+user.list_name =&gt; &quot;King, Martin Luther&quot;
+user.initials =&gt; &quot;MLK&quot;
+user.first_name_middle_name =&gt; &quot;Martin Luther&quot;
+user.first_name_middle_initial =&gt; &quot;Martin L&quot;
+user.first_name_middle_initial_last_name =&gt; &quot;Martin L King&quot;
+</code></pre>
+
+<h2>Speed Tip</h2>
+
+<p>To make these very fast in Rails, you can use memoize:</p>
+
+<pre class="code ruby"><code><span class='kw'>class</span> <span class='const'>User</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='id identifier rubyid_extend'>extend</span> <span class='const'>ActiveSupport</span><span class='op'>::</span><span class='const'>Memoizable</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'>PersonName</span>
+  <span class='id identifier rubyid_memoize'>memoize</span> <span class='symbol'>:full_name</span><span class='comma'>,</span>
+          <span class='symbol'>:list_name</span><span class='comma'>,</span>
+          <span class='symbol'>:initials</span><span class='comma'>,</span>
+          <span class='symbol'>:first_name_middle_name</span><span class='comma'>,</span>
+          <span class='symbol'>:first_name_middle_initial</span><span class='comma'>,</span>
+          <span class='symbol'>:first_name_middle_initial_last_name</span><span class='comma'>,</span>
+          <span class='symbol'>:first_name_last_name</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2>Changes</h2>
+
+<ul>
+<li>2012-03-24 1.1.0 Upgrade for Ruby 1.9.3, minitest/spec, and improved docs.</li>
+<li>2012-01-24 1.0.4 Add #initals method. Add CHANGELOG.txt file. Update examples.</li>
+</ul>
+
+<h2>License</h2>
+
+<p>You may choose any of these open source licenses:</p>
+
+<ul>
+<li>Apache License</li>
+<li>BSD License</li>
+<li>CreativeCommons License, Non-commercial Share Alike</li>
+<li>GNU General Public License Version 2 (GPL 2)</li>
+<li>GNU Lesser General Public License (LGPL)</li>
+<li>MIT License</li>
+<li>Perl Artistic License</li>
+<li>Ruby License</li>
+</ul>
+
+<p>The software is provided &quot;as is&quot;, without warranty of any kind, 
+express or implied, including but not limited to the warranties of 
+merchantability, fitness for a particular purpose and noninfringement. </p>
+
+<p>In no event shall the authors or copyright holders be liable for any 
+claim, damages or other liability, whether in an action of contract, 
+tort or otherwise, arising from, out of or in connection with the 
+software or the use or other dealings in the software.</p>
+
+<p>This license is for the included software that is created by SixArm;
+some of the included software may have its own licenses, copyrights, 
+authors, etc. and these do take precedence over the SixArm license.</p>
+
+<p>Copyright (c) 2005-2012 Joel Parker Henderson</p>
 </div></div>
     
     <div id="footer">
-  Generated on Sat Feb 12 16:22:19 2011 by 
+  Generated on Sun Mar 25 12:35:59 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.4 (ruby-1.9.2).
+  0.7.5 (ruby-1.9.3).
 </div>
 
   </body>

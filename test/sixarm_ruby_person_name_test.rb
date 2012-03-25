@@ -4,119 +4,211 @@ require 'simplecov'
 SimpleCov.start
 require 'sixarm_ruby_person_name'
 
-class PersonNameTest < Test::Unit::TestCase
+describe PersonName do
 
- def test_first_name_middle_name
-  assert_equal("abc def",p("abc","def","ghi").first_name_middle_name)
-  assert_equal("abc"    ,p("abc",nil  ,"ghi").first_name_middle_name)
-  assert_equal("def"    ,p(nil ,"def" ,"ghi").first_name_middle_name)
-  assert_equal(""       ,p(nil ,nil   ,"ghi").first_name_middle_name)
- end
+  include PersonName
 
- def test_first_name_middle_initial
-  assert_equal("abc d",p("abc","def","ghi").first_name_middle_initial)
-  assert_equal("abc"  ,p("abc",nil  ,"ghi").first_name_middle_initial)
-  assert_equal("d"    ,p(nil ,"def" ,"ghi").first_name_middle_initial)
-  assert_equal(""     ,p(nil ,nil   ,"ghi").first_name_middle_initial)
- end
+  before do
+    F   ||= Person.new("abc",   nil,   nil)  # First name
+    M   ||= Person.new(  nil, "def",   nil)  # Middle name
+    L   ||= Person.new(  nil,   nil, "ghi")  # Last name
+    FM  ||= Person.new("abc", "def",   nil)  # First name & Middle name
+    FL  ||= Person.new("abc",   nil, "ghi")  # First name & Last name
+    ML  ||= Person.new(  nil, "def", "ghi")  # Middle name & Last name
+    FML ||= Person.new("abc", "def", "ghi")  # First name & Middle name & Last name
+  end
 
- def test_first_name_middle_initial_last_name_with_first_name
-  assert_equal("abc",p("abc",nil,nil).first_name_middle_initial_last_name)
- end
+  describe "#first_name_middle_name" do 
 
- def test_first_name_middle_initial_last_name_with_middle_name
-  assert_equal("d", p(nil,"def",nil).first_name_middle_initial_last_name)
- end
+    it "with first" do
+      F.first_name_middle_name.must_equal("abc")
+    end
 
- def test_first_name_middle_initial_last_name_with_last_name
-  assert_equal("ghi",p(nil,nil,"ghi").first_name_middle_initial_last_name)
- end
+    it "with middle" do
+      M.first_name_middle_name.must_equal("def")
+    end
 
- def test_first_name_middle_initial_last_name_with_first_name_and_middle_name
-  assert_equal("abc d",p("abc","def",nil).first_name_middle_initial_last_name)
- end
+    it "with last" do
+      L.first_name_middle_name.must_equal("")
+    end
+    
+    it "with first & middle" do
+      FM.first_name_middle_name.must_equal("abc def")
+    end
 
- def test_first_name_middle_initial_last_name_with_first_name_and_last_name
-  assert_equal("abc ghi",p("abc",nil,"ghi").first_name_middle_initial_last_name)
- end
+    it "with first & last" do
+      FL.first_name_middle_name.must_equal("abc")
+    end
 
- def test_first_name_middle_initial_last_name
-  p=Person.new("abc","def","ghi")
-  assert_equal("abc d ghi",p.first_name_middle_initial_last_name)
- end
+    it "with middle & last" do
+      ML.first_name_middle_name.must_equal("def")
+    end
 
- def test_full_name_with_first_name
-  assert_equal("abc",p("abc",nil,nil).full_name)
- end
+    it "with first & middle & last" do
+      FML.first_name_middle_name.must_equal("abc def")
+    end
 
- def test_full_name_with_middle_name
-  assert_equal("def",p(nil,"def",nil).full_name)
- end
+  end
 
- def test_full_name_with_last_name
-  assert_equal("ghi",p(nil,nil,"ghi").full_name)
- end
+  describe "#first_name_middle_initial" do
 
- def test_full_name_with_first_name_and_middle_name
-  assert_equal("abc def",p("abc","def",nil).full_name)
- end
+    it "with first" do 
+      F.first_name_middle_initial.must_equal("abc")
+    end
 
- def test_full_name_with_first_name_and_last_name
-  assert_equal("abc ghi",p("abc",nil,"ghi").full_name)
- end
+    it "with middle" do 
+      M.first_name_middle_initial.must_equal("d")
+    end
 
- def test_full_name_with_middle_name_and_last_name
-  assert_equal("def ghi",p(nil,"def","ghi").full_name)
- end
+    it "with last" do
+      L.first_name_middle_initial.must_equal("")
+    end
 
- def test_full_name
-  assert_equal("abc def ghi",p("abc","def","ghi").full_name)
- end
+    it "with first & middle" do 
+      FM.first_name_middle_initial.must_equal("abc d")
+    end
 
- def test_list_name_with_first_name
-  assert_equal("abc",p("abc",nil,nil).list_name)
- end
+    it "with first & last" do
+      FL.first_name_middle_initial.must_equal("abc")
+    end
 
- def test_list_name_with_middle_name
-  assert_equal("def", p(nil,"def",nil).list_name)
- end
+    it "with middle & last" do
+      ML.first_name_middle_initial.must_equal("d")
+    end
 
- def test_list_name_with_last_name
-  assert_equal("ghi",p(nil,nil,"ghi").list_name)
- end
+    it "with first & middle & last" do 
+      FML.first_name_middle_initial.must_equal("abc d")
+    end
+    
+  end
+  
+  describe "#first_name_middle_initial_last_name" do
 
- def test_list_name_with_first_name_and_middle_name
-  assert_equal("abc def",p("abc","def",nil).list_name)
- end
+    it "with first" do
+      F.first_name_middle_initial_last_name.must_equal("abc")
+    end
 
- def test_list_name_with_first_name_and_last_name
-  assert_equal("ghi, abc",p("abc",nil,"ghi").list_name)
- end
+    it "with middle" do
+      M.first_name_middle_initial_last_name.must_equal("d")
+    end
 
- def test_list_name_with_middle_name_and_last_name
-  assert_equal("ghi, def",p(nil,"def","ghi").list_name)
- end
+    it "with last" do
+      L.first_name_middle_initial_last_name.must_equal("ghi")
+    end
 
- def test_list_name
-  assert_equal("ghi, abc def",p("abc","def","ghi").list_name)
- end
+    it "with first &_middle" do
+      FM.first_name_middle_initial_last_name.must_equal("abc d")
+    end
 
- def test_initials
-  assert_equal("adg",p("abc","def","ghi").initials)
- end
+    it "with first &_last" do
+      FL.first_name_middle_initial_last_name.must_equal("abc ghi")
+    end
 
- def test_initials_with_first_name_and_middle_name
-  assert_equal("ad",p("abc","def",nil).initials)
- end
+    it "with middle &_last" do
+      ML.first_name_middle_initial_last_name.must_equal("d ghi")
+    end
 
- def test_initials_with_first_name_and_last_name
-  assert_equal("ag",p("abc",nil,"ghi").initials)
- end
+    it "with first & middle &_last" do
+      FML.first_name_middle_initial_last_name.must_equal("abc d ghi")
+    end
 
- # Factory
- def p(first,middle,last)
-  Person.new(first,middle,last)
- end
+  end
+
+  describe "#full_name" do
+
+    it "with first" do
+      F.full_name.must_equal("abc")
+    end
+
+    it "with middle" do
+      M.full_name.must_equal("def")
+    end
+    
+    it "with last" do
+      L.full_name.must_equal("ghi")
+    end
+
+    it "with first & middle" do
+      FM.full_name.must_equal("abc def")
+    end
+
+    it "with first & last" do
+      FL.full_name.must_equal("abc ghi")
+    end
+
+    it "with middle & last" do
+      ML.full_name.must_equal("def ghi")
+    end
+
+    it "with first & middle & last" do
+      FML.full_name.must_equal("abc def ghi")
+    end
+
+  end
+
+  describe "#list_name" do
+
+    it "with first" do
+      F.list_name.must_equal("abc")
+    end
+
+    it "with middle" do
+      M.list_name.must_equal("def")
+    end
+
+    it "with last" do
+      L.list_name.must_equal("ghi")
+    end
+
+    it "with first & middle" do 
+      FM.list_name.must_equal("abc def")
+    end
+
+    it "with first & last" do
+      FL.list_name.must_equal("ghi, abc")
+    end
+
+    it "with middle & last" do
+      ML.list_name.must_equal("ghi, def")
+    end
+
+    it "with first & middle & last" do
+      FML.list_name.must_equal("ghi, abc def")
+    end
+
+  end
+
+  describe "#initials" do
+    
+    it "with first" do
+      F.initials.must_equal("a")
+    end
+
+    it "with middle" do
+      M.initials.must_equal("d")
+    end
+
+    it "with last" do
+      L.initials.must_equal("g")
+    end
+
+    it "with first & middle" do
+      FM.initials.must_equal("ad")
+    end
+
+    it "with first & last" do
+      FL.initials.must_equal("ag")
+    end
+
+    it "with middle & last" do
+      ML.initials.must_equal("dg")
+    end
+
+    it "with first & middle & last" do
+      FML.initials.must_equal("adg")
+    end
+
+  end
 
 end
 

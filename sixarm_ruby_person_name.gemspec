@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
 
   s.name              = "sixarm_ruby_person_name"
   s.summary           = "SixArm.com » Ruby » PersonName mixin methods to calculate a person's full name, list name, initials, etc."
-  s.version           = "1.0.4"
+  s.version           = "1.1.0"
   s.author            = "SixArm"
   s.email             = "sixarm@sixarm.com"
   s.homepage          = "http://sixarm.com/"
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.require_path      = 'lib'
   s.has_rdoc          = true
 
-  top_files           = [".gemtest", "CHANGELOG.txt", "INSTALL.txt", "LICENSE.txt", "Rakefile", "README.md", "VERSION"]
+  top_files           = [".gemtest", "Rakefile", "README.md", "VERSION"]
   lib_files           = ["lib/#{s.name}.rb"]
   test_files          = ["test/#{s.name}_test.rb"]
 

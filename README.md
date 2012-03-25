@@ -34,7 +34,7 @@ Install:
 
 Bundler:
 
-    gem "sixarm_ruby_person_name", "~>1.0.4"
+    gem "sixarm_ruby_person_name", "~>1.1.0"
 
 Require:
 
@@ -58,8 +58,6 @@ To install with high security:
 
 Create a typical user class, include this mixin, the use it:
 
-    require "sixarm_ruby_person_name"
-
     class User < ActiveRecord::Base
       include PersonName
     end
@@ -78,7 +76,7 @@ Create a typical user class, include this mixin, the use it:
     user.first_name_middle_initial_last_name => "Martin L King"
 
 
-## Performance Tip
+## Speed Tip
 
 To make these very fast in Rails, you can use memoize:
 
@@ -97,8 +95,9 @@ To make these very fast in Rails, you can use memoize:
 
 ## Changes
 
-* 2012-03-14 1.0.4 Update docs, tests
+* 2012-03-24 1.1.0 Upgrade for Ruby 1.9.3, minitest/spec, and improved docs.
 * 2012-01-24 1.0.4 Add #initals method. Add CHANGELOG.txt file. Update examples.
+
 
 ## License
 
@@ -126,4 +125,4 @@ This license is for the included software that is created by SixArm;
 some of the included software may have its own licenses, copyrights, 
 authors, etc. and these do take precedence over the SixArm license.
 
-Copyright (c) 2005-2013 Joel Parker Henderson
+Copyright (c) 2005-2012 Joel Parker Henderson
