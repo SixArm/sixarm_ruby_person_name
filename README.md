@@ -1,4 +1,4 @@
-# SixArm.com » Ruby » <br> PersonName mixin methods for a person model
+# Ruby » <br> PersonName mixin methods for a person model
 
 * Doc: <http://sixarm.com/sixarm_ruby_person_name/doc>
 * Gem: <http://rubygems.org/gems/sixarm_ruby_person_name>
