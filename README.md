@@ -92,9 +92,3 @@ To make these very fast in Rails, you can use memoize:
               :first_name_middle_initial_last_name,
               :first_name_last_name
     end
-
-
-## Changes
-
-* 2012-03-24 1.1.0 Upgrade for Ruby 1.9.3, minitest/spec, and improved docs.
-* 2012-01-24 1.0.4 Add #initals method. Add CHANGELOG.txt file. Update examples.
