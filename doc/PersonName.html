@@ -6,18 +6,20 @@
 <title>
   Module: PersonName
   
-    &mdash; Documentation by YARD 0.7.5
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!PersonName.html";
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (P)</a> &raquo; 
+    <a href="_index.html">Index (P)</a> &raquo;
     
     
     <span class="title">PersonName</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Module: PersonName
   
   
@@ -72,7 +79,9 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/sixarm_ruby_person_name.rb</dd>
+    <dd class="r1 last">lib/sixarm_ruby_person_name.rb<span class="defines">,<br />
+  lib/sixarm_ruby_person_name/person_name.rb</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -106,6 +115,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
@@ -129,10 +139,11 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the person's first name + middle initial.</p>
+<p>Return the person&#39;s first name + middle initial.</p>
 </div></span>
   
 </li>
@@ -152,10 +163,11 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the person's first name + middle initial + last name.</p>
+<p>Return the person&#39;s first name + middle initial + last name.</p>
 </div></span>
   
 </li>
@@ -175,10 +187,11 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the person's first name + middle name.</p>
+<p>Return the person&#39;s first name + middle name.</p>
 </div></span>
   
 </li>
@@ -198,10 +211,11 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the person's full name: first_name middle_name last_name.</p>
+<p>Return the person&#39;s full name: first_name middle_name last_name.</p>
 </div></span>
   
 </li>
@@ -221,10 +235,11 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the person's intials.</p>
+<p>Return the person&#39;s intials.</p>
 </div></span>
   
 </li>
@@ -238,6 +253,7 @@
 
     
   </span>
+  
   
   
   
@@ -267,10 +283,11 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the person's list name: last_name, first_name middle_name.</p>
+<p>Return the person&#39;s list name: last_name, first_name middle_name.</p>
 </div></span>
   
 </li>
@@ -284,6 +301,7 @@
 
     
   </span>
+  
   
   
   
@@ -306,16 +324,18 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="first_name?-instance_method">
+  <h3 class="signature first" id="first_name?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>first_name?</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Return true iff the person has a first name and its non-blank</p>
@@ -325,7 +345,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -353,7 +373,7 @@
       <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_first_name?'>first_name?</span>
- <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:first_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_first_name'>first_name</span> <span class='kw'>and</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+ <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:first_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_first_name'>first_name</span> <span class='kw'>and</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -361,20 +381,22 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="first_name_middle_initial-instance_method">
+  <h3 class="signature " id="first_name_middle_initial-instance_method">
   
     - (<tt>Object</tt>) <strong>first_name_middle_initial</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the person's first name + middle initial</p>
+<p>Return the person&#39;s first name + middle initial</p>
 
-<h2>Example</h2>
+<h2 id="label-Example">Example</h2>
 
-<pre class="code ruby"><code>u.first_name_middle_initial =&gt; &quot;Martin N&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">u.first_name_middle_initial =&gt; &quot;Martin N&quot;</code></pre>
 
 
   </div>
@@ -402,7 +424,7 @@
   <span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='rparen'>)</span>           <span class='kw'>if</span> <span class='id identifier rubyid_first_name?'>first_name?</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>...</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>   <span class='kw'>if</span> <span class='id identifier rubyid_middle_name?'>middle_name?</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -410,20 +432,22 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="first_name_middle_initial_last_name-instance_method">
+  <h3 class="signature " id="first_name_middle_initial_last_name-instance_method">
   
     - (<tt>Object</tt>) <strong>first_name_middle_initial_last_name</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the person's first name + middle initial + last name</p>
+<p>Return the person&#39;s first name + middle initial + last name</p>
 
-<h2>Example</h2>
+<h2 id="label-Example">Example</h2>
 
-<pre class="code ruby"><code>u.first_name_middle_initial_last_name =&gt; &quot;Martin N King&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">u.first_name_middle_initial_last_name =&gt; &quot;Martin N King&quot;</code></pre>
 
 
   </div>
@@ -453,7 +477,7 @@
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='rparen'>)</span>           <span class='kw'>if</span> <span class='id identifier rubyid_first_name?'>first_name?</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>...</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>   <span class='kw'>if</span> <span class='id identifier rubyid_middle_name?'>middle_name?</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_last_name'>last_name</span><span class='rparen'>)</span>            <span class='kw'>if</span> <span class='id identifier rubyid_last_name?'>last_name?</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -461,20 +485,22 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="first_name_middle_name-instance_method">
+  <h3 class="signature " id="first_name_middle_name-instance_method">
   
     - (<tt>Object</tt>) <strong>first_name_middle_name</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the person's first name + middle name</p>
+<p>Return the person&#39;s first name + middle name</p>
 
-<h2>Example</h2>
+<h2 id="label-Example">Example</h2>
 
-<pre class="code ruby"><code>u.first_name_middle_name =&gt; &quot;Martin Luther&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">u.first_name_middle_name =&gt; &quot;Martin Luther&quot;</code></pre>
 
 
   </div>
@@ -502,7 +528,7 @@
   <span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='rparen'>)</span>    <span class='kw'>if</span> <span class='id identifier rubyid_first_name?'>first_name?</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='rparen'>)</span>   <span class='kw'>if</span> <span class='id identifier rubyid_middle_name?'>middle_name?</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -510,20 +536,22 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="full_name-instance_method">
+  <h3 class="signature " id="full_name-instance_method">
   
     - (<tt>Object</tt>) <strong>full_name</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the person's full name: first_name middle_name last_name</p>
+<p>Return the person&#39;s full name: first_name middle_name last_name</p>
 
-<h2>Example</h2>
+<h2 id="label-Example">Example</h2>
 
-<pre class="code ruby"><code>u.full_name =&gt; &quot;Martin Luther King&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">u.full_name =&gt; &quot;Martin Luther King&quot;</code></pre>
 
 <p>This method skips any piece of the name that is missing or blank.</p>
 
@@ -555,7 +583,7 @@
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='rparen'>)</span>     <span class='kw'>if</span> <span class='id identifier rubyid_first_name?'>first_name?</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='rparen'>)</span>    <span class='kw'>if</span> <span class='id identifier rubyid_middle_name?'>middle_name?</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_last_name'>last_name</span><span class='rparen'>)</span>      <span class='kw'>if</span> <span class='id identifier rubyid_last_name?'>last_name?</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -563,20 +591,22 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="initials-instance_method">
+  <h3 class="signature " id="initials-instance_method">
   
     - (<tt>Object</tt>) <strong>initials</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the person's intials</p>
+<p>Return the person&#39;s intials</p>
 
-<h2>Example</h2>
+<h2 id="label-Example">Example</h2>
 
-<pre class="code ruby"><code>u.initials =&gt; &quot;MLK&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">u.initials =&gt; &quot;MLK&quot;</code></pre>
 
 <p>This method skips any piece of the name that is missing or blank.</p>
 
@@ -616,13 +646,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="last_name?-instance_method">
+  <h3 class="signature " id="last_name?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>last_name?</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Return true iff the person has a last name and its non-blank</p>
@@ -632,7 +664,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -660,7 +692,7 @@
       <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_name?'>last_name?</span>
- <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:last_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_last_name'>last_name</span> <span class='kw'>and</span> <span class='id identifier rubyid_last_name'>last_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_last_name'>last_name</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+ <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:last_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_last_name'>last_name</span> <span class='kw'>and</span> <span class='id identifier rubyid_last_name'>last_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_last_name'>last_name</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -668,20 +700,22 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="list_name-instance_method">
+  <h3 class="signature " id="list_name-instance_method">
   
     - (<tt>Object</tt>) <strong>list_name</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the person's list name: last_name, first_name middle_name</p>
+<p>Return the person&#39;s list name: last_name, first_name middle_name</p>
 
-<h2>Example</h2>
+<h2 id="label-Example">Example</h2>
 
-<pre class="code ruby"><code>u.list_name =&gt; &quot;King, Martin Luther&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">u.list_name =&gt; &quot;King, Martin Luther&quot;</code></pre>
 
 <p>This method skips any piece of the name that is missing or blank.</p>
 
@@ -716,10 +750,10 @@
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_first_name'>first_name</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id identifier rubyid_first_name?'>first_name?</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_middle_name?'>middle_name?</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_last_name?'>last_name?</span>
-    <span class='id identifier rubyid_comma'>comma</span> <span class='op'>=</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>&gt;</span><span class='int'>0</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_comma'>comma</span> <span class='op'>=</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>&gt;</span><span class='int'>0</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span><span class='lparen'>(</span><span class='id identifier rubyid_last_name'>last_name</span><span class='op'>+</span><span class='id identifier rubyid_comma'>comma</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -727,13 +761,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="middle_name?-instance_method">
+  <h3 class="signature " id="middle_name?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>middle_name?</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Return true iff the person has a middle name and its non-blank</p>
@@ -743,7 +779,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -771,7 +807,7 @@
       <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_person_name.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_middle_name?'>middle_name?</span>
- <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:middle_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_middle_name'>middle_name</span> <span class='kw'>and</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+ <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:middle_name</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_middle_name'>middle_name</span> <span class='kw'>and</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_middle_name'>middle_name</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -781,11 +817,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Sun Mar 25 12:35:59 2012 by 
+  Generated on Sun Jul 19 00:31:10 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>
