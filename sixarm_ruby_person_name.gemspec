@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
 
   s.name           = "sixarm_ruby_person_name"
-  s.summary        = "SixArm.com » Ruby » PersonName methods"
+  s.summary        = "SixArm.com → Ruby → PersonName methods"
   s.description    = "PersonName methods to calculate a person's full name, list name, initials, etc."
   s.version        = "1.1.2"
 
