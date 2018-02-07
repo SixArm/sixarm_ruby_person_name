@@ -20,9 +20,9 @@
 
 Our user models typically have accessors like these:
 
-   user.first_name => "Martin"
+   user.given_name => "Martin"
    user.middle_name => "Luther"
-   user.last_name => "King"
+   user.family_name => "King"
 
 This gem is a utility to concatenate the user's name various common ways:
 
@@ -68,18 +68,26 @@ Create a typical user class, include this mixin, the use it:
       include PersonName
     end
 
-    user=User.new(
-      first_name => 'Martin',
+    user = User.new(
+      given_name => 'Martin',
       middle_name => 'Luther',
-      last_name => 'King'
+      family_name => 'King'
     )
 
     user.full_name => "Martin Luther King"
     user.list_name => "King, Martin Luther"
     user.initials => "MLK"
-    user.first_name_middle_name => "Martin Luther"
-    user.first_name_middle_initial => "Martin L"
-    user.first_name_middle_initial_last_name => "Martin L King"
+    user.given_name_middle_name => "Martin Luther"
+    user.given_name_middle_initial => "Martin L"
+    user.given_name_middle_initial_family_name => "Martin L King"
+
+
+## Naming conventions
+
+You can use either of these naming conventions:
+
+  * given name, middle name, family name
+  * first name, middle name, last name
 
 
 ## Speed Tip
@@ -92,8 +100,8 @@ To make these very fast in Rails, you can use memoize:
       memoize :full_name,
               :list_name,
               :initials,
-              :first_name_middle_name,
-              :first_name_middle_initial,
-              :first_name_middle_initial_last_name,
-              :first_name_last_name
+              :given_name_middle_name,
+              :given_name_middle_initial,
+              :given_name_middle_initial_family_name,
+              :given_name_family_name
     end
