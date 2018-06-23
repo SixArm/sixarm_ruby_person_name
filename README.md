@@ -4,14 +4,13 @@
 
 [![Gem Version](https://badge.fury.io/rb/sixarm_ruby_person_name.svg)](http://badge.fury.io/rb/sixarm_ruby_person_name)
 [![Build Status](https://travis-ci.org/SixArm/sixarm_ruby_person_name.png)](https://travis-ci.org/SixArm/sixarm_ruby_person_name)
-[![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/a895fd425b0fec86bfb1/maintainability)](https://codeclimate.com/github/SixArm/sixarm_ruby_person_name/maintainability)
-[![Coverage Status](https://coveralls.io/repos/SixArm/sixarm_ruby_person_name/badge.svg?branch=master&service=github)](https://coveralls.io/github/SixArm/sixarm_ruby_person_name?branch=master)
+[![Code Climate](https://api.codeclimate.com/v1/badges/a895fd425b0fec86bfb1/maintanability)](https://codeclimate.com/github/SixArm/sixarm_ruby_person_name/maintainability)
 
-* Git: <https://github.com/sixarm/sixarm_ruby_person_name>
+* Git: <https://github.com/SixArm/sixarm_ruby_person_name>
 * Doc: <http://sixarm.com/sixarm_ruby_person_name/doc>
 * Gem: <https://rubygems.org/gems/sixarm_ruby_person_name>
 * Contact: Joel Parker Henderson, <joel@sixarm.com>
-* Project: [Changes](CHANGES.md), [License](LICENSE.md), [Contributing](CONTRIBUTING.md).
+* Project: [changes](CHANGES.md), [license](LICENSE.md), [contributing](CONTRIBUTING.md).
 
 <!--header-shut-->
 
@@ -37,17 +36,19 @@ For docs go to <http://sixarm.com/sixarm_ruby_person_name/doc>
 Want to help? We're happy to get pull requests.
 
 
-<!--install-opent-->
+<!--install-open-->
 
 ## Install
 
 ### Gem
 
-Run this command in your shell or terminal:
+To install this gem in your shell or terminal:
 
     gem install sixarm_ruby_person_name
 
-Or add this to your Gemfile:
+### Gemfile
+
+To add this gem to your Gemfile:
 
     gem 'sixarm_ruby_person_name'
 

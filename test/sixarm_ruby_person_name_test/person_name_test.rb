@@ -5,204 +5,430 @@ describe PersonName do
 
   include PersonName
 
-  before do
-    F   ||= Person.new("abc",   nil,   nil)  # First name
-    M   ||= Person.new(  nil, "def",   nil)  # Middle name
-    L   ||= Person.new(  nil,   nil, "ghi")  # Last name
-    FM  ||= Person.new("abc", "def",   nil)  # First name & Middle name
-    FL  ||= Person.new("abc",   nil, "ghi")  # First name & Last name
-    ML  ||= Person.new(  nil, "def", "ghi")  # Middle name & Last name
-    FML ||= Person.new("abc", "def", "ghi")  # First name & Middle name & Last name
-  end
+  describe "boolean methods" do
 
-  describe "#first_name_middle_name" do 
-
-    it "with first" do
-      F.first_name_middle_name.must_equal("abc")
+    before do
+      @p = Person.new
     end
 
-    it "with middle" do
-      M.first_name_middle_name.must_equal("def")
+    describe "#given_name?" do
+      it "works" do
+        expect(@p.given_name?).must_be_same_as false
+        @p.given_name = "x"
+        expect(@p.given_name?).must_be_same_as true
+      end
     end
 
-    it "with last" do
-      L.first_name_middle_name.must_equal("")
-    end
-    
-    it "with first & middle" do
-      FM.first_name_middle_name.must_equal("abc def")
-    end
-
-    it "with first & last" do
-      FL.first_name_middle_name.must_equal("abc")
+    describe "#first_name?" do
+      it "works" do
+        expect(@p.first_name?).must_be_same_as false
+        @p.first_name = "x"
+        expect(@p.first_name?).must_be_same_as true
+      end
     end
 
-    it "with middle & last" do
-      ML.first_name_middle_name.must_equal("def")
+    describe "#middle_name?" do
+      it "works" do
+        expect(@p.middle_name?).must_be_same_as false
+        @p.middle_name = "x"
+        expect(@p.middle_name?).must_be_same_as true
+      end
     end
 
-    it "with first & middle & last" do
-      FML.first_name_middle_name.must_equal("abc def")
+    describe "#family_name?" do
+      it "works" do
+        expect(@p.family_name?).must_be_same_as false
+        @p.family_name = "x"
+        expect(@p.family_name?).must_be_same_as true
+      end
     end
 
-  end
-
-  describe "#first_name_middle_initial" do
-
-    it "with first" do 
-      F.first_name_middle_initial.must_equal("abc")
+    describe "#last_name?" do
+      it "works" do
+        expect(@p.last_name?).must_be_same_as false
+        @p.last_name = "x"
+        expect(@p.last_name?).must_be_same_as true
+      end
     end
 
-    it "with middle" do 
-      M.first_name_middle_initial.must_equal("d")
-    end
-
-    it "with last" do
-      L.first_name_middle_initial.must_equal("")
-    end
-
-    it "with first & middle" do 
-      FM.first_name_middle_initial.must_equal("abc d")
-    end
-
-    it "with first & last" do
-      FL.first_name_middle_initial.must_equal("abc")
-    end
-
-    it "with middle & last" do
-      ML.first_name_middle_initial.must_equal("d")
-    end
-
-    it "with first & middle & last" do 
-      FML.first_name_middle_initial.must_equal("abc d")
-    end
-    
   end
   
-  describe "#first_name_middle_initial_last_name" do
+  describe "concatenation methods" do
 
-    it "with first" do
-      F.first_name_middle_initial_last_name.must_equal("abc")
+    before do
+      GIVEN               ||= Person.new(given_name: "Given")
+      FIRST               ||= Person.new(first_name: "First")
+      MIDDLE              ||= Person.new(middle_name: "Middle")
+      FAMILY              ||= Person.new(family_name: "Family")
+      LAST                ||= Person.new(last_name: "Last")
+      GIVEN_MIDDLE        ||= Person.new(given_name: "Given", middle_name: "Middle")
+      FIRST_MIDDLE        ||= Person.new(first_name: "First", middle_name: "Middle")
+      GIVEN_FAMILY        ||= Person.new(given_name: "Given", family_name: "Family")
+      FIRST_LAST          ||= Person.new(first_name: "First", last_name: "Last")
+      MIDDLE_FAMILY       ||= Person.new(middle_name: "Middle", family_name: "Family")
+      MIDDLE_LAST         ||= Person.new(middle_name: "Middle", last_name: "Last")
+      GIVEN_MIDDLE_FAMILY ||= Person.new(given_name: "Given", middle_name: "Middle", family_name: "Family")
+      FIRST_MIDDLE_LAST   ||= Person.new(first_name: "First", middle_name: "Middle", last_name: "Last")    
     end
 
-    it "with middle" do
-      M.first_name_middle_initial_last_name.must_equal("d")
+    describe "#full_name" do
+
+      it "with given" do
+        GIVEN.full_name.must_equal("Given")
+      end
+
+      it "with first" do
+        FIRST.full_name.must_equal("First")
+      end
+
+      it "with middle" do
+        MIDDLE.full_name.must_equal("Middle")
+      end
+      
+      it "with family" do
+        FAMILY.full_name.must_equal("Family")
+      end
+
+      it "with last" do
+        LAST.full_name.must_equal("Last")
+      end
+
+      it "with given & middle" do
+        GIVEN_MIDDLE.full_name.must_equal("Given Middle")
+      end
+
+      it "with first & middle" do
+        FIRST_MIDDLE.full_name.must_equal("First Middle")
+      end
+
+      it "with given & family" do
+        GIVEN_FAMILY.full_name.must_equal("Given Family")
+      end
+
+      it "with first & last" do
+        FIRST_LAST.full_name.must_equal("First Last")
+      end
+
+      it "with middle & family" do
+        MIDDLE_FAMILY.full_name.must_equal("Middle Family")
+      end
+
+      it "with middle & last" do
+        MIDDLE_LAST.full_name.must_equal("Middle Last")
+      end
+
+      it "with given & middle & family" do
+        GIVEN_MIDDLE_FAMILY.full_name.must_equal("Given Middle Family")
+      end
+
+      it "with first & middle & last" do
+        FIRST_MIDDLE_LAST.full_name.must_equal("First Middle Last")
+      end
+
     end
 
-    it "with last" do
-      L.first_name_middle_initial_last_name.must_equal("ghi")
+    describe "#list_name" do
+
+      it "with given" do
+        GIVEN.list_name.must_equal("Given")
+      end
+
+      it "with first" do
+        FIRST.list_name.must_equal("First")
+      end
+
+      it "with middle" do
+        MIDDLE.list_name.must_equal("Middle")
+      end
+
+      it "with family" do
+        FAMILY.list_name.must_equal("Family")
+      end
+
+      it "with last" do
+        LAST.list_name.must_equal("Last")
+      end
+
+      it "with given & middle" do 
+        GIVEN_MIDDLE.list_name.must_equal("Given Middle")
+      end
+
+      it "with first & middle" do 
+        FIRST_MIDDLE.list_name.must_equal("First Middle")
+      end
+
+      it "with given & family" do
+        GIVEN_FAMILY.list_name.must_equal("Family, Given")
+      end
+
+      it "with first & last" do
+        FIRST_LAST.list_name.must_equal("Last, First")
+      end
+
+      it "with middle & family" do
+        MIDDLE_FAMILY.list_name.must_equal("Family, Middle")
+      end
+
+      it "with middle & last" do
+        MIDDLE_LAST.list_name.must_equal("Last, Middle")
+      end
+
+      it "with given & middle & family" do
+        GIVEN_MIDDLE_FAMILY.list_name.must_equal("Family, Given Middle")
+      end
+
+      it "with first & middle & last" do
+        FIRST_MIDDLE_LAST.list_name.must_equal("Last, First Middle")
+      end
+
     end
 
-    it "with first &_middle" do
-      FM.first_name_middle_initial_last_name.must_equal("abc d")
+    describe "#initials" do
+
+      it "with given" do
+        GIVEN.initials.must_equal("G")
+      end
+
+      it "with first" do
+        FIRST.initials.must_equal("F")
+      end
+
+      it "with middle" do
+        MIDDLE.initials.must_equal("M")
+      end
+
+      it "with family" do
+        FAMILY.initials.must_equal("F")
+      end
+
+      it "with last" do
+        LAST.initials.must_equal("L")
+      end
+
+      it "with given & middle" do
+        GIVEN_MIDDLE.initials.must_equal("GM")
+      end
+
+      it "with first & middle" do
+        FIRST_MIDDLE.initials.must_equal("FM")
+      end
+
+      it "with given & family" do
+        GIVEN_FAMILY.initials.must_equal("GF")
+      end
+
+      it "with first & last" do
+        FIRST_LAST.initials.must_equal("FL")
+      end
+
+      it "with middle & family" do
+        MIDDLE_FAMILY.initials.must_equal("MF")
+      end
+
+      it "with middle & last" do
+        MIDDLE_LAST.initials.must_equal("ML")
+      end
+
+      it "with given & middle & family" do
+        GIVEN_MIDDLE_FAMILY.initials.must_equal("GMF")
+      end
+
+      it "with first & middle & last" do
+        FIRST_MIDDLE_LAST.initials.must_equal("FML")
+      end
+
     end
 
-    it "with first &_last" do
-      FL.first_name_middle_initial_last_name.must_equal("abc ghi")
+    describe "#given_name_middle_name" do 
+
+      it "with given" do
+        GIVEN.given_name_middle_name.must_equal("Given")
+      end
+
+      it "with middle" do
+        MIDDLE.given_name_middle_name.must_equal("Middle")
+      end
+
+      it "with last" do
+        LAST.given_name_middle_name.must_equal("")
+      end
+      
+      it "with given & middle" do
+        GIVEN_MIDDLE.given_name_middle_name.must_equal("Given Middle")
+      end
+
+      it "with given & family" do
+        GIVEN_FAMILY.given_name_middle_name.must_equal("Given")
+      end
+
+      it "with middle & family" do
+        MIDDLE_FAMILY.given_name_middle_name.must_equal("Middle")
+      end
+
+      it "with given & middle & family" do
+        GIVEN_MIDDLE_FAMILY.given_name_middle_name.must_equal("Given Middle")
+      end
+
     end
 
-    it "with middle &_last" do
-      ML.first_name_middle_initial_last_name.must_equal("d ghi")
+    describe "#first_name_middle_name" do 
+
+      it "with first" do
+        FIRST.first_name_middle_name.must_equal("First")
+      end
+
+      it "with middle" do
+        MIDDLE.first_name_middle_name.must_equal("Middle")
+      end
+
+      it "with last" do
+        LAST.first_name_middle_name.must_equal("")
+      end
+      
+      it "with first & middle" do
+        FIRST_MIDDLE.first_name_middle_name.must_equal("First Middle")
+      end
+
+      it "with first & last" do
+        FIRST_LAST.first_name_middle_name.must_equal("First")
+      end
+
+      it "with middle & last" do
+        MIDDLE_LAST.first_name_middle_name.must_equal("Middle")
+      end
+
+      it "with first & middle & last" do
+        FIRST_MIDDLE_LAST.first_name_middle_name.must_equal("First Middle")
+      end
+
     end
 
-    it "with first & middle &_last" do
-      FML.first_name_middle_initial_last_name.must_equal("abc d ghi")
+    describe "#given_name_middle_initial" do
+
+      it "with given" do 
+        GIVEN.given_name_middle_initial.must_equal("Given")
+      end
+
+      it "with middle" do 
+        MIDDLE.given_name_middle_initial.must_equal("M")
+      end
+
+      it "with family" do
+        FAMILY.given_name_middle_initial.must_equal("")
+      end
+
+      it "with given & middle" do 
+        GIVEN_MIDDLE.given_name_middle_initial.must_equal("Given M")
+      end
+
+      it "with given & family" do
+        GIVEN_FAMILY.given_name_middle_initial.must_equal("Given")
+      end
+
+      it "with middle & family" do
+        MIDDLE_FAMILY.given_name_middle_initial.must_equal("M")
+      end
+
+      it "with given & middle & family" do 
+        GIVEN_MIDDLE_FAMILY.given_name_middle_initial.must_equal("Given M")
+      end
+      
     end
 
-  end
+    describe "#first_name_middle_initial" do
 
-  describe "#full_name" do
+      it "with first" do 
+        FIRST.first_name_middle_initial.must_equal("First")
+      end
 
-    it "with first" do
-      F.full_name.must_equal("abc")
+      it "with middle" do 
+        MIDDLE.first_name_middle_initial.must_equal("M")
+      end
+
+      it "with last" do
+        LAST.first_name_middle_initial.must_equal("")
+      end
+
+      it "with first & middle" do 
+        FIRST_MIDDLE.first_name_middle_initial.must_equal("First M")
+      end
+
+      it "with first & last" do
+        FIRST_LAST.first_name_middle_initial.must_equal("First")
+      end
+
+      it "with middle & last" do
+        MIDDLE_LAST.first_name_middle_initial.must_equal("M")
+      end
+
+      it "with first & middle & last" do 
+        FIRST_MIDDLE_LAST.first_name_middle_initial.must_equal("First M")
+      end
+      
     end
 
-    it "with middle" do
-      M.full_name.must_equal("def")
-    end
-    
-    it "with last" do
-      L.full_name.must_equal("ghi")
-    end
+    describe "#given_name_middle_initial_family_name" do
 
-    it "with first & middle" do
-      FM.full_name.must_equal("abc def")
-    end
+      it "with given" do
+        GIVEN.given_name_middle_initial_family_name.must_equal("Given")
+      end
 
-    it "with first & last" do
-      FL.full_name.must_equal("abc ghi")
-    end
+      it "with middle" do
+        MIDDLE.given_name_middle_initial_family_name.must_equal("M")
+      end
 
-    it "with middle & last" do
-      ML.full_name.must_equal("def ghi")
-    end
+      it "with family" do
+        FAMILY.given_name_middle_initial_family_name.must_equal("Family")
+      end
 
-    it "with first & middle & last" do
-      FML.full_name.must_equal("abc def ghi")
-    end
+      it "with given &_middle" do
+        GIVEN_MIDDLE.given_name_middle_initial_family_name.must_equal("Given M")
+      end
 
-  end
+      it "with given &_family" do
+        GIVEN_FAMILY.given_name_middle_initial_family_name.must_equal("Given Family")
+      end
 
-  describe "#list_name" do
+      it "with middle &_family" do
+        MIDDLE_FAMILY.given_name_middle_initial_family_name.must_equal("M Family")
+      end
 
-    it "with first" do
-      F.list_name.must_equal("abc")
-    end
+      it "with given & middle &_family" do
+        GIVEN_MIDDLE_FAMILY.given_name_middle_initial_family_name.must_equal("Given M Family")
+      end
 
-    it "with middle" do
-      M.list_name.must_equal("def")
     end
 
-    it "with last" do
-      L.list_name.must_equal("ghi")
-    end
+    describe "#first_name_middle_initial_last_name" do
 
-    it "with first & middle" do 
-      FM.list_name.must_equal("abc def")
-    end
+      it "with first" do
+        FIRST.first_name_middle_initial_last_name.must_equal("First")
+      end
 
-    it "with first & last" do
-      FL.list_name.must_equal("ghi, abc")
-    end
+      it "with middle" do
+        MIDDLE.first_name_middle_initial_last_name.must_equal("M")
+      end
 
-    it "with middle & last" do
-      ML.list_name.must_equal("ghi, def")
-    end
+      it "with last" do
+        LAST.first_name_middle_initial_last_name.must_equal("Last")
+      end
 
-    it "with first & middle & last" do
-      FML.list_name.must_equal("ghi, abc def")
-    end
+      it "with first &_middle" do
+        FIRST_MIDDLE.first_name_middle_initial_last_name.must_equal("First M")
+      end
 
-  end
+      it "with first &_last" do
+        FIRST_LAST.first_name_middle_initial_last_name.must_equal("First Last")
+      end
 
-  describe "#initials" do
-    
-    it "with first" do
-      F.initials.must_equal("a")
-    end
+      it "with middle &_last" do
+        MIDDLE_LAST.first_name_middle_initial_last_name.must_equal("M Last")
+      end
 
-    it "with middle" do
-      M.initials.must_equal("d")
-    end
+      it "with first & middle &_last" do
+        FIRST_MIDDLE_LAST.first_name_middle_initial_last_name.must_equal("First M Last")
+      end
 
-    it "with last" do
-      L.initials.must_equal("g")
-    end
-
-    it "with first & middle" do
-      FM.initials.must_equal("ad")
-    end
-
-    it "with first & last" do
-      FL.initials.must_equal("ag")
-    end
-
-    it "with middle & last" do
-      ML.initials.must_equal("dg")
-    end
-
-    it "with first & middle & last" do
-      FML.initials.must_equal("adg")
     end
 
   end
@@ -212,16 +438,20 @@ end
 
 class Person
 
- attr_accessor :first_name
- attr_accessor :middle_name
- attr_accessor :last_name
+  attr_accessor :given_name
+  attr_accessor :first_name
+  attr_accessor :middle_name
+  attr_accessor :family_name
+  attr_accessor :last_name
 
- include PersonName
+  include PersonName
 
- def initialize(first,middle,last)
-  @first_name=first
-  @middle_name=middle
-  @last_name=last
- end
+  def initialize(opts = {})
+    @given_name = opts[:given_name]
+    @first_name = opts[:first_name]
+    @middle_name = opts[:middle_name]
+    @family_name = opts[:family_name]
+    @last_name = opts[:last_name]
+  end
 
 end
